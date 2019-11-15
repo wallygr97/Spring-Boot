@@ -54,6 +54,7 @@ public class RestApiController {
         List<Object> objetos = alquilerServices.subFamiliasDias();
         Gson gson = new Gson();
         String result = gson.toJson(objetos);
+        System.out.println("RESULT "+result);
         return result;
     }
 
@@ -62,6 +63,7 @@ public class RestApiController {
         List<Object> objetos = alquilerServices.familiasDias();
         Gson gson = new Gson();
         String result = gson.toJson(objetos);
+        System.out.println("RESULT "+result);
         return result;
     }
 //

@@ -6,6 +6,7 @@ $( document ).ready(function() {
         $.get("/sub_familias/", function(data, status){
                 var headers = [];
                 var values = [];
+                console.log(data)
             data.forEach(function (d) {
                 headers.push(d[1]);
                 values.push(parseFloat(d[0]).toPrecision(4));
@@ -25,6 +26,7 @@ $( document ).ready(function() {
     $.get("/familias/", function(data, status){
         var headers = [];
         var values = [];
+        console.log(data)
         data.forEach(function (d) {
             headers.push(d[1]);
             values.push(parseFloat(d[0]).toPrecision(4));

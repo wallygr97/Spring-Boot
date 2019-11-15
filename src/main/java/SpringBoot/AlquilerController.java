@@ -114,12 +114,15 @@ public class AlquilerController {
 //        equipoServices.getEquipo(id).setCantidad(equipoServices.getEquipo(id).getCantidad()-Cantidad);
         Alquiler alquiler = new Alquiler();
 //        alquiler.setDiasAlquilado((int)TimeUnit.DAYS.toDays(getDateDiff(new Date(), date, TimeUnit.MILLISECONDS)));
+        Equipo eq = equipoServices.getEquipo(id);
+        eq.setCantidad(eq.getCantidad()-1);
         alquiler.setDevuelto(false);
         alquiler.setEquipo(equipoServices.getEquipo(id));
         alquiler.setNombre(nombre);
         alquiler.setFecha(new Date().getTime());
         alquiler.setFechaPromesa(date.getTime());
         alquiler.setCedula(cedula);
+        equipoServices.creacionEquipo(eq);
         alquilerServices.creacionAlquiler(alquiler);
 
         return "redirect:/alquileres/crear_lista?cliente="+cedula;

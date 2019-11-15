@@ -21,4 +21,6 @@ public interface EquipoRepository extends JpaRepository<Equipo, Long> {
 
 
 
+
+
 }

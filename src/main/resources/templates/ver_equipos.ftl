@@ -54,17 +54,30 @@
 
                                     <tbody>
                                     <#list equipos as equipo>
-                                    <tr class="row-click" data-href="/administracion/editar/${equipo.id}">
-                                        <td width="50px">
-                                            <#--<a href="alquilar_equipo?id=${equipo.id}&cliente=${cliente}">-->
-                                                <img style="width: 150px;height: 100px;" class="img-circle" src="/clientes/${equipo.ruta_imagen}" />
-                                            <#--</a>-->
-                                        </td>
-                                        <td>${equipo.nombre}</td>
-                                        <td>${equipo.subFamilia.familia.nombre}</td>
-                                        <td>${equipo.subFamilia.nombre}</td>
-                                        <td>${equipo.cantidad}</td>
-                                    </tr>
+                                        <tr class="row-click" data-href="/administracion/editar/${equipo.id}">
+                                            <td width="50px">
+                                                <#--<a href="alquilar_equipo?id=${equipo.id}&cliente=${cliente}">-->
+                                                <#if equipo.ruta_imagen??>
+                                                    <img style="width: 150px;height: 100px;" class="img-circle" src="/clientes/${equipo.ruta_imagen}" />
+                                                </#if>
+                                                <#--</a>-->
+                                            </td>
+                                            <#if equipo.nombre??>
+                                                <td>${equipo.nombre}</td>
+                                            </#if>
+
+                                                <#if equipo.subFamilia??>
+                                                        <td>${equipo.subFamilia.familia.nombre}</td>
+                                                </#if>
+
+                                            <#if equipo.subFamilia??>
+                                                <td>${equipo.subFamilia.nombre}</td>
+                                            </#if>
+
+                                            <#if equipo.cantidad??>
+                                                <td>${equipo.cantidad}</td>
+                                            </#if>
+                                        </tr>
                                     </#list>
                                     </tbody>
                                 </table>
